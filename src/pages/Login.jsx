@@ -127,10 +127,10 @@ export default function Login() {
             </div>
           )}
 
-          <button type="submit" className="btn-primary" style={{ width: '100%', marginTop: '1.5rem' }} disabled={isLoading}>
-            {isLoading ? 'Processing...' : (
-              role === 'citizen' ? (!otpSent ? 'Send Twilio OTP' : 'Verify & Login') : 'Authenticate Securely'
-            )}
+          <button type="submit" className="btn-primary" style={{ width: '100%', marginTop: '1.5rem' }} disabled={role === 'citizen' && isLoading}>
+            {role === 'citizen' ? (
+              isLoading ? 'Processing...' : (!otpSent ? 'Send Twilio OTP' : 'Verify & Login')
+            ) : 'Authenticate Securely'}
           </button>
         </form>
       </div>
